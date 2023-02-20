@@ -1,29 +1,55 @@
+import { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import TopBar from './components/TopBar'
+import SelectStyle from './components/SelectStyle';
+import Instructions from './components/Instructions';
+import InputForm from './components/InputForm';
+import Output from "./components/Output";
+import Footer from "./components/Footer";
 
 function App() {
+  const [selectedStyle, setSelectedStyle] = useState("");
+  const [showInstructions, setShowInstructions] = useState(true);
+  const [showSelectStyle, setShowSelectStyle] = useState(true);
+  const [showOutput, setShowOutput] = useState(false);
+  const [response, setResponse] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  function handleStyleSelect(style) {
+    setSelectedStyle(style);
+    setShowInstructions(false);
+    setShowSelectStyle(false);
+  }
+
+  function handleGenerateAd() {
+    setShowOutput(true);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <Container className="App">
+      <TopBar />
+      {showInstructions && <Instructions />}
+      {showSelectStyle && (
+        <SelectStyle onStyleSelect={handleStyleSelect} />
+      )}
+      {showOutput && (
+        <Output response={response} loading={loading} />
+      )}
+      {!showInstructions && !showSelectStyle && !showOutput && (
+        <InputForm
+          selectedStyle={selectedStyle}
+          onGenerateAd={handleGenerateAd}
+          setResponse={setResponse}
+          setLoading={setLoading}
+        />
+      )}
+      <Footer />
+    </Container>
   );
 }
+
 
 export default App;
