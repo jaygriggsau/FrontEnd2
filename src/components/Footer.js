@@ -2,10 +2,10 @@ import {Container, Col, Row} from 'react-bootstrap'
 
 function Footer(){
     return (
-        <Container>
+        <Container className='text-center'>
             <Row>
                 <Col>
-                    <h1>A <strong>Innovatio</strong> Project</h1>
+                    <h1>An <strong>Innovatio</strong> Project</h1>
                 </Col>
             </Row>
         </Container>

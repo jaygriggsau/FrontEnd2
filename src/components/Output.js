@@ -20,14 +20,15 @@ function Output({ response, loading }) {
             {response.map((textParcel, index) => (
               <p key={index}>{textParcel}</p>
             ))}
+          </Card.Body>
+          <Card.Footer className="text-center">
             <button
-              className="btn btn-primary mt-2"
+              className="btn btn-primary"
               onClick={handleCopyClick}
               disabled={copied}
             >
               <FaSave /> {copied ? "Copied!" : "Copy to Clipboard"}
-            </button>
-          </Card.Body>
+            </button></Card.Footer>
         </Card>
       )}
     </Container>
