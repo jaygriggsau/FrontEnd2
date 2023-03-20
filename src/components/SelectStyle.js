@@ -89,6 +89,19 @@ function SelectStyle ({onStyleSelect}){
                     </Card>
                 </Col>
             </Row>
+            <Row>
+            <Card>
+                        <Card.Header>Chatbot</Card.Header>
+                        <Card.Body>
+                            <Card.Title>A Fantastic ChatBot</Card.Title>
+                                <Card.Text>
+                                    Experimental Chatbot
+                                </Card.Text>
+                                <Button variant="primary" onClick={() => handleButtonClick("chat")}>Use This Template</Button>
+
+                        </Card.Body>
+                    </Card>
+            </Row>
         </Container>
     )
 }

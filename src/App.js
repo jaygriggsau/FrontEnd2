@@ -10,6 +10,7 @@ import InputForm from './components/InputForm';
 import Output from "./components/Output";
 import Footer from "./components/Footer";
 
+
 function App() {
   const [selectedStyle, setSelectedStyle] = useState("");
   const [showInstructions, setShowInstructions] = useState(true);
@@ -46,6 +47,7 @@ function App() {
           setLoading={setLoading}
         />
       )}
+
       <Footer />
     </Container>
   );
