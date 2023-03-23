@@ -10,6 +10,8 @@ import InputForm from './components/InputForm';
 import Output from "./components/Output";
 import Footer from "./components/Footer";
 
+import ChatBot from "./components/ChatBot";
+
 
 function App() {
   const [selectedStyle, setSelectedStyle] = useState("");
@@ -49,6 +51,7 @@ function App() {
       )}
 
       <Footer />
+      <ChatBot />
     </Container>
   );
 }
