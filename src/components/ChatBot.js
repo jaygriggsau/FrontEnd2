@@ -18,13 +18,10 @@ function ChatBot() {
     const data = await res.json();
 
     // update the response state with the response data
-    setResponse(data.message);
+    setResponse(data.data);
 
     // reset the text input form
     setMessage('');
-    
-    console.log(data.data)
-    console.log(res.data)
   }
 
   return (
