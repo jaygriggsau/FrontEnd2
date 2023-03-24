@@ -19,7 +19,7 @@ function ChatBot() {
 
     // update the response state with the response data
     setResponse(data.data);
-
+    console.log(response)
     // reset the text input form
     setMessage('');
   }
