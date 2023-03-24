@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-
 function ChatBot() {
   const [message, setMessage] = useState('');
+  const [response, setResponse] = useState('');
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -16,21 +15,21 @@ function ChatBot() {
 
     const data = await res.json();
 
-    // create a new p tag with the response data
-    const newPTag = document.createElement('p');
-    newPTag.textContent = data.message;
-    document.body.appendChild(newPTag);
+    // update the response state with the response data
+    setResponse(data.message);
 
     // reset the text input form
     setMessage('');
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={message} onChange={(event) => setMessage(event.target.value)} />
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={message} onChange={(event) => setMessage(event.target.value)} />
+        <button type="submit">Submit</button>
+      </form>
+      {response && <p>{response}</p>}
+    </div>
   );
 }
-
 export default ChatBot;
