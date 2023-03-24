@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 function ChatBot() {
   const [message, setMessage] = useState('');
   const [response, setResponse] = useState('');
