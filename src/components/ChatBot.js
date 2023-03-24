@@ -22,6 +22,7 @@ function ChatBot() {
 
     // reset the text input form
     setMessage('');
+    
     console.log(data.data)
     console.log(res.data)
   }
